@@ -2,7 +2,7 @@ This project will be for an admin and user portal for the Hennops River Revival 
 
 ## Getting Started
 
-Yarn is being used, so ensure it is insalld and up to date by running the following command:
+Yarn is being used, so ensure it is insalled and up to date by running the following command:
 
 ```bash
 npm install -g yarn
