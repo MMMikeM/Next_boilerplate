@@ -12,7 +12,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion'
 import { notificationsOutline } from 'ionicons/icons'
 import Link from 'next/link'
-import router from 'next/router'
+import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 
 type Props = {
@@ -21,6 +21,9 @@ type Props = {
 
 const AppLayout: React.FC<Props> = ({ children }) => {
   const [showNotifications, setShowNotifications] = useState(false)
+
+  const router = useRouter()
+
   const handleExitComplete = () => {
     if (typeof window !== 'undefined') {
       window.scrollTo({ top: 0 })

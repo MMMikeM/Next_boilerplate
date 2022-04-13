@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import type { AppProps } from 'next/app'
-import { useRouter } from 'next/router'
 import { defineCustomElements } from '@ionic/core/loader'
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
 import '/styles/variables.css'
@@ -9,9 +8,9 @@ import Head from 'next/head'
 
 import { ReactQueryDevtools } from 'react-query/devtools'
 import AppLayout from '../layouts/app'
+import { useRouter } from 'next/router'
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter()
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -22,9 +21,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         },
       })
   )
+
   useEffect(() => {
     defineCustomElements(window)
   })
+
+  const router = useRouter()
 
   return (
     <>
