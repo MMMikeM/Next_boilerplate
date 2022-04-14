@@ -1,14 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import type { AppProps } from 'next/app'
-import { defineCustomElements } from '@ionic/core/loader'
-import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
-import '/styles/variables.css'
-import '/styles'
 import Head from 'next/head'
-
-import { ReactQueryDevtools } from 'react-query/devtools'
-import AppLayout from '../layouts/app'
 import { useRouter } from 'next/router'
+
+import { Hydrate, QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+
+import '/styles/tailwind.css'
+import '/styles/variables.css'
+import '@ionic/react/css/core.css'
+import '@ionic/react/css/structure.css'
+import '@ionic/react/css/typography.css'
+
+import AppLayout from '../layouts/app'
 
 function MyApp({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -21,10 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         },
       })
   )
-
-  useEffect(() => {
-    defineCustomElements(window)
-  })
 
   const router = useRouter()
 
